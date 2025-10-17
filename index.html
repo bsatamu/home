@@ -10,17 +10,21 @@
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
     <a href="./" class="flex items-center gap-2">
-      <img src="./assets/BSA Official Logo.png" alt="BSA Logo" class="h-8 w-8 rounded-full">
-      <a href="./" class="font-semibold text-xl">Bangladesh Student Association – Texas A&M University</a>
-      <nav class="flex gap-4 text-sm">
-        <a href="#events" class="hover:underline">Events</a>
-        <a href="#membership" class="hover:underline">Membership</a>
-        <!-- <a href="#sponsors" class="hover:underline">Sponsors</a> -->
-        <a href="#about" class="hover:underline">About</a>
-        <a href="#contact" class="hover:underline">Contact</a>
-      </nav>
-    </div>
-  </header>
+      <img src="./assets/bsa-logo.png" alt="BSA Logo" class="h-8 w-8 rounded-full">
+      <span class="font-semibold text-xl">Bangladesh Student Association – Texas A&M University</span>
+    </a>
+    <nav class="flex gap-4 text-sm">
+      <a href="#exec" class="hover:underline">Executive Commitee</a>
+      <a href="#honors" class="hover:underline">Honor Roll</a>
+      <a href="#current" class="hover:underline">Current Event</a>
+      <a href="#events" class="hover:underline">Upcoming</a>
+      <a href="./previous-events.html" class="hover:underline">Previous</a>
+      <a href="./photos.html" class="hover:underline">Photos</a>
+      <a href="#membership" class="hover:underline">Join</a>
+      <a href="#contact" class="hover:underline">Contact</a>
+    </nav>
+  </div>
+</header>
 
   <section class="bg-gray-50">
     <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
@@ -40,7 +44,29 @@
       </div>
     </div>
   </section>
+  
+<section id="exec" class="max-w-6xl mx-auto px-4 py-14">
+  <h2 class="text-2xl font-semibold">BSA Executive Committee</h2>
+  <p class="mt-2 text-gray-700 text-sm">Elected student leaders for the current academic year.</p>
+  <div id="exec-grid" class="mt-6 grid sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+</section>
+  
+<section id="honors" class="bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 py-14">
+    <h2 class="text-2xl font-semibold">BSA Presidents’ Honor Roll</h2>
+    <p class="mt-2 text-gray-700 text-sm">Recognizing our past presidents for their service.</p>
+    <ul id="honors-list" class="mt-6 grid sm:grid-cols-2 md:grid-cols-3 gap-3"></ul>
+  </div>
+</section>
 
+  <section id="current" class="max-w-6xl mx-auto px-4 py-14">
+  <div class="flex items-end justify-between">
+    <h2 class="text-2xl font-semibold">Happening Now</h2>
+    <a href="./current-event.html" class="text-sm underline">Full details</a>
+  </div>
+  <div id="current-card" class="mt-6"></div>
+</section>
+  
   <section id="events" class="max-w-6xl mx-auto px-4 py-14">
     <div class="flex items-end justify-between">
       <h2 class="text-2xl font-semibold">Upcoming Events</h2>
@@ -48,23 +74,31 @@
     </div>
     <div id="events-list" class="mt-6 grid md:grid-cols-3 gap-6"></div>
   </section>
-
-  <section id="membership" class="bg-gray-50">
-    <div class="max-w-6xl mx-auto px-4 py-14">
-      <h2 class="text-2xl font-semibold">Membership</h2>
-      <p class="mt-2 text-gray-700">Become a member to access tournaments, cultural nights, mentorship, and community service.</p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="https://forms.gle/YOUR_MEMBER_FORM" class="px-5 py-2 rounded-xl bg-black text-white">Register</a>
-        <a href="https://venmo.com/YOUR_HANDLE" class="px-5 py-2 rounded-xl border">Pay Dues</a>
-        <a href="./docs/constitution.pdf" class="px-5 py-2 rounded-xl border">Constitution</a>
-      </div>
+<section class="max-w-6xl mx-auto px-4 pb-4">
+  <a href="./previous-events.html" class="text-sm underline">See previous events →</a>
+</section>
+  
+<section id="membership" class="bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 py-14">
+    <h2 class="text-2xl font-semibold">Join BSA</h2>
+    <p class="mt-2 text-gray-700">Become a member to access tournaments, cultural nights, mentorship, and a strong Aggie community.</p>
+    <ul class="mt-4 list-disc list-inside text-sm text-gray-700 space-y-1">
+      <li>Eligibility for BSA tournaments and cultural events</li>
+      <li>Member-only announcements and discounts from campus partners</li>
+      <li>Leadership, volunteering, and networking opportunities</li>
+    </ul>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href="https://forms.gle/YOUR_MEMBER_FORM" class="px-5 py-2 rounded-xl bg-black text-white">Become a Member</a>
+      <a href="https://venmo.com/YOUR_HANDLE" class="px-5 py-2 rounded-xl border">Pay Dues</a>
+      <!-- <a href="./docs/constitution.pdf" class="px-5 py-2 rounded-xl border">Constitution</a> -->
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="sponsors" class="max-w-6xl mx-auto px-4 py-14">
+  <!-- <section id="sponsors" class="max-w-6xl mx-auto px-4 py-14">
     <h2 class="text-2xl font-semibold">Sponsors</h2>
     <div id="sponsor-grid" class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4"></div>
-  </section>
+  </section> -->
 
   <section id="about" class="bg-gray-50">
     <div class="max-w-6xl mx-auto px-4 py-14 grid md:grid-cols-2 gap-8">
@@ -76,9 +110,9 @@
       <div class="rounded-2xl border p-6">
         <h3 class="font-medium">Quick Links</h3>
         <ul class="mt-3 list-disc list-inside text-sm">
-          <li><a class="underline" href="https://www.facebook.com/YOUR_PAGE">Facebook</a></li>
-          <li><a class="underline" href="https://www.instagram.com/YOUR_PAGE">Instagram</a></li>
-          <li><a class="underline" href="mailto:yourbsa@tamu.edu">Email us</a></li>
+          <li><a class="underline" href="https://www.facebook.com/profile.php?id=61563220442750">Facebook</a></li>
+          <!-- <li><a class="underline" href="https://www.instagram.com/YOUR_PAGE">Instagram</a></li> -->
+          <li><a class="underline" href="mailto:bsatamu23@gmail.com">Email us</a></li>
         </ul>
       </div>
     </div>
@@ -91,7 +125,7 @@
 
   <footer class="border-t">
     <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-gray-600">
-      © <span id="year"></span> BSA @ Texas A&M • Built with GitHub Pages
+      © <span id="year"></span> BSA @ Texas A&M 
     </div>
   </footer>
 
