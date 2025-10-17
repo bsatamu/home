@@ -1,15 +1,25 @@
-[
-  {
-    "title": "Game Week: Cricket Auction",
+{
+  "featured": {
+    "title": "BSA Game Week — Fall 2025",
     "start": "2025-10-17T22:00:00-05:00",
-    "location": "Memorial Student Center",
-    "description": "Team auction for cricket. Snacks provided.",
-    "form": "https://forms.gle/YOUR_FORM"
+    "location": "MSC + Penberthy Fields",
+    "summary": "Two weekends of cricket, FIFA, badminton, and more. Prizes, snacks, and Aggie spirit.",
+    "cta": "Register Now",
+    "link": "./current-event.html"
   },
-  {
-    "title": "Game Week: Cricket",
-    "start": "2025-10-19T09:00:00-05:00",
-    "location": "Penberthy Fields",
-    "description": "Tournament day. Bring your Aggie ID."
-  }
-]
+  "upcoming": [
+    {
+      "title": "Cricket Tournament Day",
+      "start": "2025-10-19T09:00:00-05:00",
+      "location": "Penberthy Fields",
+      "description": "Tournament day. Bring your Aggie ID.",
+      "form": "https://forms.gle/YOUR_FORM"
+    },
+    {
+      "title": "Cultural Night",
+      "start": "2025-11-15T18:00:00-06:00",
+      "location": "Rudder Theatre",
+      "description": "Music, dance, food, and community."
+    }
+  ]
+}
