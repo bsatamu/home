@@ -1,25 +1,12 @@
 {
   "featured": {
     "title": "BSA Game Week — Fall 2025",
-    "start": "2025-10-17T22:00:00-05:00",
-    "location": "MSC + Penberthy Fields",
-    "summary": "Two weekends of cricket, FIFA, badminton, and more. Prizes, snacks, and Aggie spirit.",
+    "start": "2025-10-18T09:00:00-05:00",
+    "location": "TAMU Campus/ 811 Harvey Rd",
+    "summary": "After the huge success of our last BSA Game Week, we’re bringing the fun back—bigger, louder, and even more exciting! 😎💥 Two weekends packed with thrilling games, friendly rivalries, delicious food, and exciting prizes! 🏆🍕🎁  Game Weekends: Oct 18–19 and 25–26. Schedules of each game and details are inside each registration form.",
     "cta": "Register Now",
-    "link": "./current-event.html"
-  },
-  "upcoming": [
-    {
-      "title": "Cricket Tournament Day",
-      "start": "2025-10-19T09:00:00-05:00",
-      "location": "Penberthy Fields",
-      "description": "Tournament day. Bring your Aggie ID.",
-      "form": "https://forms.gle/YOUR_FORM"
-    },
-    {
-      "title": "Cultural Night",
-      "start": "2025-11-15T18:00:00-06:00",
-      "location": "Rudder Theatre",
-      "description": "Music, dance, food, and community."
-    }
-  ]
+    "link": "./game-week.html"
+  }
+  ,
+  "upcoming": []
 }
