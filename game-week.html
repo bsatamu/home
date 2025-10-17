@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Game Week Registration — BSA @ Texas A&M</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900">
+  <div class="max-w-5xl mx-auto p-4">
+    <a href="./" class="text-sm underline">← Back to Home</a>
+    <h1 class="text-3xl font-semibold mt-4" id="gw-title">BSA Game Week — Fall 2025</h1>
+    <p class="mt-2 text-gray-700" id="gw-dates">October 18–19 and 25–26</p>
+    <p class="mt-1 text-gray-600 text-sm" id="gw-note">Schedules and details are inside each registration form.</p>
+
+    <div id="games" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </div>
+
+  <script>
+    async function loadJSON(p){const r=await fetch(p);return r.ok?await r.json():null}
+    (async ()=>{
+      const data = await loadJSON('./data/game_week.json');
+      if(!data) return;
+      document.getElementById('gw-title').textContent = data.meta?.title || 'BSA Game Week — Fall 2025';
+      document.getElementById('gw-dates').textContent = data.meta?.dates || '';
+      document.getElementById('gw-note').textContent  = data.meta?.note || '';
+
+      const grid = document.getElementById('games');
+      (data.games||[]).forEach(g=>{
+        const card = document.createElement('div');
+        card.className = "border rounded-2xl p-5 bg-white flex flex-col";
+        card.innerHTML = `
+          <div class="text-sm text-gray-500">${g.date || ''}</div>
+          <div class="mt-1 font-semibold">${g.name}</div>
+          <div class="mt-4">
+            <a href="${g.form}" class="px-4 py-2 rounded-lg bg-black text-white text-sm inline-block">Register</a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    })();
+  </script>
+</body>
+</html>
