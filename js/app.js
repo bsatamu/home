@@ -13,14 +13,18 @@ function card(html){ return el('div', 'border rounded-2xl p-5 bg-white', html); 
     loadJSON('./data/sponsors.json').then(v=>v||[])
   ]);
 
-  // Executive Committee
+  // Executive Committee with photos
   const $exec = document.getElementById('exec-grid');
   if ($exec && officers.length){
     officers.forEach(o=>{
-      const c = card(`
+      const c = document.createElement('div');
+      c.className = "border rounded-2xl p-5 bg-white flex flex-col items-center text-center";
+      c.innerHTML = `
+        <img src="${o.photo}" alt="${o.name}" class="h-24 w-24 object-cover rounded-full border mb-3">
         <div class="font-medium">${o.name}</div>
         <div class="text-sm text-gray-600">${o.role}</div>
-      `);
+        <div class="text-xs text-gray-500 mt-1">${o.info || ''}</div>
+      `;
       $exec.appendChild(c);
     });
   }
