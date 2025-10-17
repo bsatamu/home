@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "title": "BSA Game Week — Fall 2025",
+    "dates": "October 18–19 and 25–26",
+    "note": "Schedules and format details are inside each registration form."
+  },
+  "games": [
+    {
+      "name": "Cricket",
+      "date": "October 19 (Grand Auction: October 17)",
+      "form": "https://forms.gle/ifuXsJRp96uo3vXo7"
+    },
+    {
+      "name": "FIFA",
+      "date": "October 18",
+      "form": "https://forms.gle/FFXkhLuviZBj2g9PA"
+    },
+    {
+      "name": "Badminton (Doubles)",
+      "date": "October 18",
+      "form": "https://forms.gle/tVGLGW6P9Nf7h9Jt7"
+    },
+    {
+      "name": "Table Tennis",
+      "date": "October 25",
+      "form": "https://forms.gle/pdLmgNGpDrJZPXyu9"
+    },
+    {
+      "name": "UNO",
+      "date": "October 25",
+      "form": "https://forms.gle/rQRLSBZiWMB2kipg8"
+    },
+    {
+      "name": "Ludo",
+      "date": "October 25",
+      "form": "https://forms.gle/st7jq3jpRWgYPA976"
+    },
+    {
+      "name": "Sequence",
+      "date": "October 25",
+      "form": "https://forms.gle/vFo6VjkEsnQ4Lzmz8"
+    },
+    {
+      "name": "29 (Card Game)",
+      "date": "October 26",
+      "form": "https://forms.gle/A2qs5AHcdecyXUFE7"
+    }
+  ]
+}
