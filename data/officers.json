@@ -1,5 +1,68 @@
 [
-  { "name": "Saquib", "role": "President" },
-  { "name": "A. Rahman", "role": "General Secretary" },
-  { "name": "S. Akter", "role": "Treasurer" }
+  {
+    "name": "Dr. M. Faruque Hasa",
+    "role": "Advisor",
+    "photo": "./assets/officers/hasan_photo.jpg",
+    "info": "Professor, Chemical Engineering, Texas A&M University"
+  },
+  {
+    "name": "Nazmus Saadat As-Saquib",
+    "role": "President",
+    "photo": "./assets/officers/saquib_photo.jpg",
+    "info": "PhD Student, Computer Engineering, Texas A&M University"
+  },
+  {
+    "name": "Atiqul Islam Ahad",
+    "role": "Treasurer",
+    "photo": "./assets/officers/ahad_photo.jpg",
+    "info": "Graduate Student, Finance and Accounting"
+  },
+  {
+    "name": "Adib Rahman",
+    "role": "Vice President (Technical)",
+    "photo": "./assets/officers/adib_photo.jpg",
+    "info": "Graduate Student, Electrical Engineering"
+  },
+  {
+    "name": "Tanbir Sarowar",
+    "role": "General Secretary",
+    "photo": "./assets/officers/tanbir_photo.jpg",
+    "info": "Graduate Student, Industrial Engineering"
+  },
+  {
+    "name": "Ayesha Siddika",
+    "role": "Cultural Secretary",
+    "photo": "./assets/officers/ayesha_photo.jpg",
+    "info": "Graduate Student, Biological and Agricultural Engineering"
+  },
+  {
+    "name": "Antara Saha",
+    "role": "Organizing Secretary",
+    "photo": "./assets/officers/antara_photo.jpg",
+    "info": "Graduate Student, Education and Human Development"
+  },
+  {
+    "name": "Tamanna Akter Jui",
+    "role": "Technical Officer",
+    "photo": "./assets/officers/tamanna_photo.jpg",
+    "info": "Graduate Student, Computer Science"
+  },
+  {
+    "name": "Atiya Tahira",
+    "role": "Social Media Officer",
+    "photo": "./assets/officers/atiya_photo.jpg",
+    "info": "Undergraduate Student, Communications"
+  },
+  {
+    "name": "Salman Zaheer",
+    "role": "Logistics Officer",
+    "photo": "./assets/officers/salman_photo.jpg",
+    "info": "Graduate Student, Civil Engineering"
+  },
+  {
+    "name": "Tasnim Sultana",
+    "role": "Social Affairs Officer",
+    "photo": "./assets/officers/tasnim_photo.jpg",
+    "info": "Graduate Student, Sociology"
+  }
 ]
