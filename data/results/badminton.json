@@ -8,8 +8,21 @@
   "runners_up": ["Fahim Islam Anik", "Tanvir Ahmed"],
   "score": "Final: 21–15, 21–16",
   "photos": [
-    "../assets/photos/badminton/01.jpg",
-    "../assets/photos/badminton/02.jpg",
-    "../assets/photos/badminton/03.jpg"
+    {
+      "src": "../assets/photos/badminton/01.jpg",
+      "caption": "Champion Team — Ankur Nath & Wahid Hasan"
+    },
+    {
+      "src": "../assets/photos/badminton/02.jpg",
+      "caption": "Runner-up Team — Fahim Islam Anik & Tanvir Ahmed"
+    },
+    {
+      "src": "../assets/photos/badminton/03.jpg",
+      "caption": "Glimpses of Match"
+    },
+    {
+      "src": "../assets/photos/badminton/04.jpg",
+      "caption": "Glimpses of Match"
+    }
   ]
 }
