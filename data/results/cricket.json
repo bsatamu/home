@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "Cricket",
+    "date": "October 19, 2025",
+    "location": "Polo Field"
+  },
+  "winners": ["Aggie Giants"],
+  "runners_up": ["College Statiion Dynamites"],
+  "mvp": "Mohammad Tarequl Islam",
+  "score": "Team A 157/6 beat Team B 107/7 by 50 runs",
+  "photos": [
+    "../assets/photos/cricket/01.jpg",
+    "../assets/photos/cricket/02.jpg",
+    "../assets/photos/cricket/scoreboard.jpg"
+  ]
+}
