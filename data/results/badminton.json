@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "title": "Badminton (Doubles)",
+    "date": "October 18, 2025",
+    "location": "Rec Center"
+  },
+  "winners": ["Ankur Nath", "Wahid Hasan"],
+  "runners_up": ["Fahim Islam Anik", "Tanvir Ahmed"],
+  "score": "Final: 21–15, 21–16",
+  "photos": [
+    "../assets/photos/badminton/01.jpg",
+    "../assets/photos/badminton/02.jpg",
+    "../assets/photos/badminton/03.jpg"
+  ]
+}
