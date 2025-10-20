@@ -1,0 +1,7 @@
+{
+  "games": [
+    { "slug": "badminton", "name": "Badminton (Doubles)", "date": "Oct 18, 2025" },
+    { "slug": "fifa",      "name": "FIFA",                 "date": "Oct 18, 2025" },
+    { "slug": "cricket",   "name": "Cricket",              "date": "Oct 19, 2025" }
+  ]
+}
