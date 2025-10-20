@@ -8,6 +8,78 @@
   "runners_up": ["College Station Dynamites"],
   "mvp": "Mohammad Tarequl Islam",
   "score": "Aggie Giants 157/6 beat College Station Dynamites 107/7 by 50 runs",
+
+  "group_stage": [
+    {
+      "match": "Match 1",
+      "fixture": "Aggie Giants vs Bryan Bulls",
+      "result": "Aggie Giants won by 12 runs"
+    },
+    {
+      "match": "Match 2",
+      "fixture": "Bryan Bulls vs College Station Dynamites",
+      "result": "College Station Dynamites won by 50 runs"
+    },
+    {
+      "match": "Match 3",
+      "fixture": "Aggie Giants vs College Station Dynamites",
+      "result": "Aggie Giants won by 5 wickets"
+    }
+  ],
+
+  "auction_note": "We had 27 players in our auction. After the auction, the three teams were finalized as below.",
+
+  "teams": [
+    {
+      "name": "Aggie Giants",
+      "owner": "Sairfur Rahman Mithu",
+      "captain": "Mostafa Meraj Pasha",
+      "players": [
+        "Mostafa Meraj Pasha",
+        "Abul Hasnat Samit",
+        "Mohammad Tarequl Islam",
+        "Nazmus Saadat AS-Saquib",
+        "Wahid Hasan",
+        "Shafiqul Islam",
+        "Abdullah Taher",
+        "S. M. Ashik Abedin",
+        "SMH Marjuban"
+      ]
+    },
+    {
+      "name": "Bryan Bulls",
+      "owner": "Saiful A Mojumder",
+      "captain": "Ruzlan Habib",
+      "players": [
+        "Ruzlan Habib",
+        "Sijad Islam",
+        "Ahmad Riyadh",
+        "Palash Chandra Das",
+        "Al Mazedur Rahman",
+        "Dipto",
+        "Prionto",
+        "Anik Somadder",
+        "Ishfaq Chowdhury"
+      ]
+    },
+    {
+      "name": "College Station Dynamites",
+      "owner": "Md Nazibul Islam",
+      "captain": "Md Shakil Arman",
+      "players": [
+        "Asif Ahmed",
+        "Md Shakil Arman",
+        "Mahbub Ul Hasan",
+        "Md Shahidur Rahaman",
+        "Sonjoy Paul",
+        "Uwais Qarni Hasan",
+        "Mahadeva Chanda Durjoy",
+        "Amran Haroon",
+        "Khandaker Fahim Anjum"
+      ]
+    }
+  ],
+
   "photos": [
     "../assets/photos/cricket/01.jpeg",
     "../assets/photos/cricket/02.jpeg",
