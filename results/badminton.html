@@ -28,14 +28,21 @@
       if (d.runners_up) document.getElementById('runners').innerHTML = `<b>Runners-up:</b> ${Array.isArray(d.runners_up)?d.runners_up.join(', '):d.runners_up}`;
       if (d.score) document.getElementById('score').textContent = d.score;
 
+      // Photos with captions
       const g = document.getElementById('gallery');
-      (d.photos||[]).forEach(src=>{
-        const a = document.createElement('a');
-        a.href = src; a.target = "_blank";
-        a.className = "block border rounded-xl overflow-hidden";
-        a.innerHTML = `<img src="${src}" alt="" class="w-full h-40 object-cover">`;
-        g.appendChild(a);
+      (d.photos || []).forEach(p => {
+        const { src, caption } = typeof p === 'string' ? { src: p, caption: '' } : p;
+        const div = document.createElement('div');
+        div.className = "border rounded-xl overflow-hidden bg-white";
+        div.innerHTML = `
+          <a href="${src}" target="_blank">
+            <img src="${src}" alt="${caption || ''}" class="w-full h-40 object-cover">
+          </a>
+          ${caption ? `<p class="text-xs text-gray-600 mt-1 px-1">${caption}</p>` : ''}
+        `;
+        g.appendChild(div);
       });
+
     })();
   </script>
 </body></html>
