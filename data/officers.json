@@ -2,67 +2,67 @@
   {
     "name": "Dr. Faruque Hasan",
     "role": "Advisor",
-    "photo": "./assets/officers/hasan_photo.jpg",
+    "photo": "./assets/officers/hasan.jpg",
     "info": "Professor, Chemical Engineering, Texas A&M University"
   },
   {
     "name": "Nazmus Saadat As-Saquib",
     "role": "President",
-    "photo": "./assets/officers/saquib_photo.jpg",
+    "photo": "./assets/officers/saquib.jpg",
     "info": "PhD Student, Computer Engineering"
   },
   {
     "name": "Atiqul Islam Ahad",
     "role": "Treasurer",
-    "photo": "./assets/officers/ahad_photo.jpg",
+    "photo": "./assets/officers/ahad.jpg",
     "info": "PhD Student, Mechanical Engineering"
   },
   {
     "name": "Adib Rahman",
     "role": "Vice President (Technical)",
-    "photo": "./assets/officers/adib_photo.jpg",
+    "photo": "./assets/officers/adib.jpg",
     "info": "PhD Student, Mechanical Engineering"
   },
   {
     "name": "Tanbir Sarowar",
     "role": "General Secretary",
-    "photo": "./assets/officers/tanbir_photo.jpg",
+    "photo": "./assets/officers/tanbir.jpg",
     "info": "PhD Student, Mechanical Engineering"
   },
   {
     "name": "Ayesha Siddika",
     "role": "Cultural Secretary",
-    "photo": "./assets/officers/ayesha_photo.jpg",
+    "photo": "./assets/officers/ayesha.jpg",
     "info": "PhD Student, Mechanical Engineering"
   },
   {
     "name": "Antara Saha",
     "role": "Organizing Secretary",
-    "photo": "./assets/officers/antara_photo.jpg",
+    "photo": "./assets/officers/antara.jpg",
     "info": "PhD Student, Biochemistry"
   },
   {
     "name": "Tamanna Akter Jui",
     "role": "Technical Officer",
-    "photo": "./assets/officers/tamanna_photo.jpg",
+    "photo": "./assets/officers/tamanna.jpg",
     "info": "PhD Student, Mechanical Engineering"
   },
   {
     "name": "Atiya Tahira",
     "role": "Social Media Officer",
-    "photo": "./assets/officers/atiya_photo.jpg",
+    "photo": "./assets/officers/atiya.jpg",
     "info": "PhD Student, Biochemistry"
   },
   {
     "name": "Salman Zaheer",
     "role": "Logistics Officer",
-    "photo": "./assets/officers/salman_photo.jpg",
+    "photo": "./assets/officers/salman.jpg",
     "info": "PhD Student, Biology"
   },
   {
     "name": "Tasnim Sultana",
     "role": "Social Affairs Officer",
-    "photo": "./assets/officers/tasnim_photo.jpg",
+    "photo": "./assets/officers/tasnim.jpg",
     "info": "PhD Student, Agriculture and Life Sciences"
   }
 ]
