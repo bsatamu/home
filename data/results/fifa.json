@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "FIFA",
+    "date": "October 18, 2025",
+    "location": "811 Harvey Rd"
+  },
+  "winners": ["Riyad Uzzaman"],
+  "runners_up": ["Rishad Uzzaman"],
+  "photos": [
+    "../assets/photos/fifa/01.jpg",
+    "../assets/photos/fifa/02.jpg"
+  ]
+}
