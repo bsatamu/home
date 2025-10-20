@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head>
-<meta charset="utf-8"><title>Badminton Results — BSA</title>
+<meta charset="utf-8"><title>Cricket Results — BSA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script src="https://cdn.tailwindcss.com"></script>
 </head><body class="bg-white text-gray-900">
@@ -8,32 +8,72 @@
     <h1 class="text-3xl font-semibold mt-4" id="title"></h1>
     <p class="mt-1 text-gray-700" id="meta"></p>
 
-    <div class="mt-6 space-y-2">
+    <div class="mt-6 space-y-2" id="summary">
       <div id="winners" class="text-lg"></div>
       <div id="runners" class="text-lg"></div>
+      <div id="mvp" class="text-lg"></div>
       <div id="score" class="text-sm text-gray-700"></div>
     </div>
 
+
+        <!-- Group Stage Results -->
+    <section class="mt-10" id="group-stage" style="display:none;">
+      <h2 class="text-2xl font-semibold">Group Stage Results</h2>
+      <div id="group-list" class="mt-4 grid md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </section>
+
+    
+    <!-- Photos -->
     <h2 class="text-xl font-semibold mt-8">Photos</h2>
     <div id="gallery" class="mt-3 grid grid-cols-2 md:grid-cols-3 gap-3"></div>
+    
+
+
+    <!-- Auction note + Teams (3-column) -->
+    <section class="mt-10">
+      <h2 class="text-2xl font-semibold">Teams</h2>
+      <p id="auction-note" class="text-sm text-gray-600 mt-1"></p>
+      <div id="teams-grid" class="mt-4 grid md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </section>
   </div>
+
   <script>
-    async function loadJSON(p){const r=await fetch(p);return r.ok?await r.json():null}
+    async function loadJSON(p){
+      try { const r=await fetch(p,{cache:'no-store'}); return r.ok?await r.json():null } catch { return null }
+    }
+
     (async ()=>{
       const d = await loadJSON('../data/results/cricket.json');
       if(!d) return;
-      document.getElementById('title').textContent = d.meta.title || 'Badminton (Doubles)';
-      document.getElementById('meta').textContent  = [d.meta.date, d.meta.location].filter(Boolean).join(' • ');
-      if (d.winners) document.getElementById('winners').innerHTML = `<b>Winners:</b> ${Array.isArray(d.winners)?d.winners.join(', '):d.winners}`;
-      if (d.runners_up) document.getElementById('runners').innerHTML = `<b>Runners-up:</b> ${Array.isArray(d.runners_up)?d.runners_up.join(', '):d.runners_up}`;
+
+      // Header/meta
+      document.getElementById('title').textContent = d.meta?.title || 'Cricket';
+      document.getElementById('meta').textContent  = [d.meta?.date, d.meta?.location].filter(Boolean).join(' • ');
+
+      // Summary
+      if (d.winners) document.getElementById('winners').innerHTML = `<b>Winners:</b> ${Array.isArray(d.winners)? d.winners.join(', ') : d.winners}`;
+      if (d.runners_up) document.getElementById('runners').innerHTML = `<b>Runners-up:</b> ${Array.isArray(d.runners_up)? d.runners_up.join(', ') : d.runners_up}`;
+      if (d.mvp) document.getElementById('mvp').innerHTML = `<b>MVP:</b> ${d.mvp}`;
       if (d.score) document.getElementById('score').textContent = d.score;
-      if (d.mvp) {
-        const m = document.createElement('div');
-        m.className = "text-lg";
-        m.innerHTML = `<b>MVP:</b> ${d.mvp}`;
-        document.querySelector('.space-y-2').appendChild(m);
+
+            // Group Stage Results
+      if (Array.isArray(d.group_stage) && d.group_stage.length) {
+        const sec = document.getElementById('group-stage');
+        const list = document.getElementById('group-list');
+        sec.style.display = ''; // unhide section
+        d.group_stage.forEach(m => {
+          const card = document.createElement('div');
+          card.className = "border rounded-2xl p-5 bg-white";
+          card.innerHTML = `
+            <div class="text-sm text-gray-500">${m.match || ''}</div>
+            <div class="mt-1 font-semibold">${m.fixture || ''}</div>
+            <div class="mt-2 text-sm text-gray-700">${m.result || ''}</div>
+          `;
+          list.appendChild(card);
+        });
       }
 
+      // Photos
       const g = document.getElementById('gallery');
       (d.photos||[]).forEach(src=>{
         const a = document.createElement('a');
@@ -41,6 +81,29 @@
         a.className = "block border rounded-xl overflow-hidden";
         a.innerHTML = `<img src="${src}" alt="" class="w-full h-40 object-cover">`;
         g.appendChild(a);
+      });
+
+      // Auction note
+      if (d.auction_note) {
+        document.getElementById('auction-note').textContent = d.auction_note;
+      }
+
+      // Teams grid (3-column)
+      const tg = document.getElementById('teams-grid');
+      (d.teams || []).forEach(t=>{
+        const card = document.createElement('div');
+        card.className = "border rounded-2xl p-5 bg-white";
+        const players = (t.players||[]).map(p=>`<li>${p}</li>`).join('');
+        card.innerHTML = `
+          <div class="font-semibold">${t.name}</div>
+          <div class="text-sm text-gray-600 mt-1"><b>Owner:</b> ${t.owner || '-'}</div>
+          <div class="text-sm text-gray-600"><b>Captain:</b> ${t.captain || '-'}</div>
+          <div class="mt-3">
+            <div class="text-sm font-medium mb-1">Players</div>
+            <ul class="list-disc list-inside text-sm space-y-0.5">${players}</ul>
+          </div>
+        `;
+        tg.appendChild(card);
       });
     })();
   </script>
