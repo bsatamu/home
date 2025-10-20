@@ -13,31 +13,93 @@
     <p class="mt-2 text-gray-700" id="gw-dates">October 18–19 and 25–26</p>
     <p class="mt-1 text-gray-600 text-sm" id="gw-note">Schedules and details are inside each registration form.</p>
 
-    <div id="games" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    <!-- Quick access pill to the full results hub -->
+    <a href="./results/" class="inline-block mt-4 px-3 py-1 rounded-full border text-sm">View Results</a>
+
+    <!-- RESULTS (auto-hidden if no data) -->
+    <section id="results" class="mt-8 hidden">
+      <h2 class="text-2xl font-semibold">Results</h2>
+      <p class="text-sm text-gray-600">Week 1 champions and finals. Tap through for full details & photos.</p>
+      <div id="res-grid" class="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      <div class="mt-3">
+        <a href="./results/" class="text-sm underline">All results →</a>
+      </div>
+    </section>
+
+    <!-- REGISTRATION CARDS -->
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold">Register by Game</h2>
+      <div id="games" class="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </section>
   </div>
 
   <script>
-    async function loadJSON(p){const r=await fetch(p);return r.ok?await r.json():null}
-    (async ()=>{
-      const data = await loadJSON('./data/game_week.json');
-      if(!data) return;
-      document.getElementById('gw-title').textContent = data.meta?.title || 'BSA Game Week — Fall 2025';
-      document.getElementById('gw-dates').textContent = data.meta?.dates || '';
-      document.getElementById('gw-note').textContent  = data.meta?.note || '';
+    async function loadJSON(p){ try { const r=await fetch(p,{cache:'no-store'}); return r.ok?await r.json():null } catch { return null } }
 
+    (async ()=>{
+      // 1) Load main Game Week meta + games
+      const data = await loadJSON('./data/game_week.json');
+      if (data?.meta?.title) document.getElementById('gw-title').textContent = data.meta.title;
+      if (data?.meta?.dates) document.getElementById('gw-dates').textContent = data.meta.dates;
+      if (data?.meta?.note)  document.getElementById('gw-note').textContent  = data.meta.note;
+
+      // 2) Try to load Results index and render preview cards
+      const resIndex = await loadJSON('./data/results/index.json');
+      if (resIndex?.games?.length){
+        const $section = document.getElementById('results');
+        const $grid = document.getElementById('res-grid');
+        $section.classList.remove('hidden');
+
+        // Show up to first 3 results as preview cards
+        (resIndex.games.slice(0,3)).forEach(g=>{
+          const card = document.createElement('a');
+          card.href = `./results/${g.slug}.html`;
+          card.className = "border rounded-2xl p-5 bg-white block";
+          card.innerHTML = `
+            <div class="text-sm text-gray-500">${g.date || ''}</div>
+            <div class="mt-1 font-semibold">${g.name}</div>
+            <div class="mt-3 text-sm underline">View results →</div>
+          `;
+          $grid.appendChild(card);
+        });
+      }
+
+      // 3) Render registration cards (existing behavior)
       const grid = document.getElementById('games');
-      (data.games||[]).forEach(g=>{
+      (data?.games||[]).forEach(g=>{
         const card = document.createElement('div');
         card.className = "border rounded-2xl p-5 bg-white flex flex-col";
         card.innerHTML = `
           <div class="text-sm text-gray-500">${g.date || ''}</div>
           <div class="mt-1 font-semibold">${g.name}</div>
-          <div class="mt-4">
+          <div class="mt-4 flex items-center gap-3">
             <a href="${g.form}" class="px-4 py-2 rounded-lg bg-black text-white text-sm inline-block">Register</a>
+            <!-- Results link will be appended below if we find a matching results page -->
           </div>
         `;
         grid.appendChild(card);
       });
+
+      // 4) Optional: add per-card "Results" links if a matching results page exists
+      // Map result slugs by game name from index.json (if available)
+      if (resIndex?.games?.length){
+        const slugByName = Object.fromEntries(resIndex.games.map(x => [x.name, x.slug]));
+        // For each registration card, if its name matches a results entry, append a link
+        Array.from(grid.children).forEach(div=>{
+          const nameEl = div.querySelector('.font-semibold');
+          const btnRow = div.querySelector('.mt-4.flex');
+          if (!nameEl || !btnRow) return;
+          const name = nameEl.textContent.trim();
+          const slug = slugByName[name];
+          if (!slug) return;
+          // Append Results link
+          const a = document.createElement('a');
+          a.href = `./results/${slug}.html`;
+          a.textContent = 'Results';
+          a.className = 'text-sm underline';
+          btnRow.appendChild(a);
+        });
+      }
     })();
   </script>
 </body>
