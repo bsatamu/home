@@ -9,5 +9,15 @@
   "photos": [
     "../assets/photos/fifa/01.jpg",
     "../assets/photos/fifa/02.jpg"
+  ],
+  "participants": [
+    "Riyad Uzzaman (Winner)",
+    "Rishad Uzzaman (Runner-up)",
+    "Kazi Araf Sayeed (2nd Runner-up)",
+    "Nazmus Saadat As-Saquib (3rd Runner-up)",
+    "Tahsin Habib",
+    "Fahim Islam Anik",
+    "Akib Mahmud",
+    "Tahmed Ahmed"
   ]
 }
