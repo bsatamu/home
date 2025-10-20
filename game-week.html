@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Game Week Registration — BSA @ Texas A&M</title>
+  <title>Game Week — BSA @ Texas A&M</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -34,24 +34,33 @@
   </div>
 
   <script>
-    async function loadJSON(p){ try { const r=await fetch(p,{cache:'no-store'}); return r.ok?await r.json():null } catch { return null } }
+    async function loadJSON(p){
+      try {
+        const r = await fetch(p,{cache:'no-store'});
+        return r.ok ? await r.json() : null;
+      } catch {
+        return null;
+      }
+    }
 
     (async ()=>{
-      // 1) Load main Game Week meta + games
+      // Load Game Week metadata + games
       const data = await loadJSON('./data/game_week.json');
       if (data?.meta?.title) document.getElementById('gw-title').textContent = data.meta.title;
       if (data?.meta?.dates) document.getElementById('gw-dates').textContent = data.meta.dates;
       if (data?.meta?.note)  document.getElementById('gw-note').textContent  = data.meta.note;
 
-      // 2) Try to load Results index and render preview cards
+      // Load results index
       const resIndex = await loadJSON('./data/results/index.json');
-      if (resIndex?.games?.length){
-        const $section = document.getElementById('results');
-        const $grid = document.getElementById('res-grid');
-        $section.classList.remove('hidden');
+      const resultsAvailable = resIndex?.games?.length > 0;
+      const slugByName = resultsAvailable ? Object.fromEntries(resIndex.games.map(x => [x.name, x.slug])) : {};
 
-        // Show up to first 3 results as preview cards
-        (resIndex.games.slice(0,3)).forEach(g=>{
+      // Show results preview
+      if (resultsAvailable){
+        const section = document.getElementById('results');
+        section.classList.remove('hidden');
+        const grid = document.getElementById('res-grid');
+        resIndex.games.slice(0,3).forEach(g=>{
           const card = document.createElement('a');
           card.href = `./results/${g.slug}.html`;
           card.className = "border rounded-2xl p-5 bg-white block";
@@ -60,46 +69,27 @@
             <div class="mt-1 font-semibold">${g.name}</div>
             <div class="mt-3 text-sm underline">View results →</div>
           `;
-          $grid.appendChild(card);
+          grid.appendChild(card);
         });
       }
 
-      // 3) Render registration cards (existing behavior)
+      // Render registration cards, skipping those with results
       const grid = document.getElementById('games');
-      (data?.games||[]).forEach(g=>{
+      (data?.games || []).forEach(g => {
+        const hasResult = !!slugByName[g.name];
+        if (hasResult) return; // skip games that already have results
+
         const card = document.createElement('div');
         card.className = "border rounded-2xl p-5 bg-white flex flex-col";
         card.innerHTML = `
           <div class="text-sm text-gray-500">${g.date || ''}</div>
           <div class="mt-1 font-semibold">${g.name}</div>
-          <div class="mt-4 flex items-center gap-3">
+          <div class="mt-4">
             <a href="${g.form}" class="px-4 py-2 rounded-lg bg-black text-white text-sm inline-block">Register</a>
-            <!-- Results link will be appended below if we find a matching results page -->
           </div>
         `;
         grid.appendChild(card);
       });
-
-      // 4) Optional: add per-card "Results" links if a matching results page exists
-      // Map result slugs by game name from index.json (if available)
-      if (resIndex?.games?.length){
-        const slugByName = Object.fromEntries(resIndex.games.map(x => [x.name, x.slug]));
-        // For each registration card, if its name matches a results entry, append a link
-        Array.from(grid.children).forEach(div=>{
-          const nameEl = div.querySelector('.font-semibold');
-          const btnRow = div.querySelector('.mt-4.flex');
-          if (!nameEl || !btnRow) return;
-          const name = nameEl.textContent.trim();
-          const slug = slugByName[name];
-          if (!slug) return;
-          // Append Results link
-          const a = document.createElement('a');
-          a.href = `./results/${slug}.html`;
-          a.textContent = 'Results';
-          a.className = 'text-sm underline';
-          btnRow.appendChild(a);
-        });
-      }
     })();
   </script>
 </body>
