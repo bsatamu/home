@@ -41,7 +41,7 @@ function card(html){ return el('div', 'border rounded-2xl p-5 bg-white', html); 
 
   // Current/Ongoing Event
   const $cur = document.getElementById('current-card');
-  if ($cur && events?.featured){
+  if ($cur && events?.featured) {
     const e = events.featured;
     const c = card(`
       <div class="flex flex-col md:flex-row gap-4">
@@ -51,13 +51,22 @@ function card(html){ return el('div', 'border rounded-2xl p-5 bg-white', html); 
           <div class="mt-1 text-sm text-gray-700">${e.location || ''}</div>
           <p class="mt-3 text-sm text-gray-700">${e.summary || ''}</p>
           <div class="mt-4 flex gap-2">
-            ${e.link ? `<a class="px-4 py-2 rounded-lg bg-black text-white text-sm" href="${e.link}">${e.cta||'Details'}</a>`:''}
+            ${e.link ? `
+              <a href="${e.link}"
+                 class="px-4 py-2 rounded-lg bg-black text-white text-sm hover:bg-gray-900 transition">
+                 ${e.cta || 'Register Now'}
+              </a>` : ''}
+            <a href="./results/index.html"
+               class="px-4 py-2 rounded-lg bg-white text-black border border-gray-300 text-sm hover:bg-gray-50 transition">
+               View Results
+            </a>
           </div>
         </div>
       </div>
     `);
     $cur.appendChild(c);
   }
+
 
   // Upcoming Events (existing section)
   const $events = document.getElementById('events-list');
